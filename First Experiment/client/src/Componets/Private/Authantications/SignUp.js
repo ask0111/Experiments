@@ -11,6 +11,13 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
 
+  const EmailOtpHandler = ()=>{
+
+  }
+  const MobileOtpHandler = ()=>{
+      
+  }
+
 
   return (
     <div style={{width: '100%'}} className='signup-ct'>
@@ -22,27 +29,29 @@ const SignUp = () => {
         </div>
         <div className='input'>
           <label>Email:</label>
-          <input onChange={(e)=> setName(e.targate.value)} placeholder='Email' />
+          <input onChange={(e)=> setemail(e.targate.value)} placeholder='Email' />
         </div>
+        <button onClick={()=> EmailOtpHandler()}>Send OTP</button>
         <div className='input'>
           <label>Email OTP:</label>
-          <input onChange={(e)=> setName(e.targate.value)} placeholder='OTP' />
+          <input onChange={(e)=> setemailOtp(e.targate.value)} placeholder='OTP' />
         </div>
         <div className='input'>
           <label>Mobile:</label>
-          <input onChange={(e)=> setName(e.targate.value)} placeholder='Mobile' />
+          <input onChange={(e)=> setMobile(e.targate.value)} placeholder='Mobile' />
         </div>
+        <button onClick={MobileOtpHandler()}>Send OTP</button>
         <div className='input'>
           <label>Mobile OTP:</label>
-          <input onChange={(e)=> setName(e.targate.value)} placeholder='OTP' />
+          <input onChange={(e)=> setMobileOtp(e.targate.value)} placeholder='OTP' />
         </div>
         <div className='input'>
           <label>Password:</label>
-          <input onChange={(e)=> setName(e.targate.value)} placeholder='Password' />
+          <input onChange={(e)=> setPassword(e.targate.value)} placeholder='Password' />
         </div>
         <div className='input'>
           <label>Confirm Password:</label>
-          <input onChange={(e)=> setName(e.targate.value)} placeholder='Confirm PassWord' />
+          <input onChange={(e)=> setConfirmPassword(e.targate.value)} placeholder='Confirm PassWord' />
         </div>
         <Link>Google</Link>
         <Link>github</Link>
