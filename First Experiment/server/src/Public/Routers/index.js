@@ -1,9 +1,8 @@
 const express = require('express');
-
 const router = express.Router();
+const emailOTP = require('../../Private/OTP/email')
 
-router.get('/s', (req, res)=>{
-    res.status(202).send('This is Router')
-})
+
+router.get('/emailotp', emailOTP);
 
 module.exports = router;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const SignUp = () => {
   const [name, setName] = useState('');
@@ -11,8 +12,15 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
 
-  const EmailOtpHandler = ()=>{
-
+  const EmailSendOtpHandler = async()=>{
+    try {
+      const res = await axios.get('http://localhost:8080/emailotp/');
+      const sms = await res.json();
+      console.log(sms);
+    } catch (error) {
+      console.log('Email send OTP Error' ,error)
+    }
+      
   }
   const MobileOtpHandler = ()=>{
       
@@ -31,7 +39,7 @@ const SignUp = () => {
           <label>Email:</label>
           <input onChange={(e)=> setemail(e.targate.value)} placeholder='Email' />
         </div>
-        <button onClick={()=> EmailOtpHandler()}>Send OTP</button>
+        <button onClick={()=> EmailSendOtpHandler()}>Send OTP</button>
         <div className='input'>
           <label>Email OTP:</label>
           <input onChange={(e)=> setemailOtp(e.targate.value)} placeholder='OTP' />
