@@ -1,11 +1,20 @@
 const express = require('express');
 require('./src/DB/db');
+const cors = require('cors');
 const app = express();
 const router = require('./src/Public/Routers/index.js');
-const PORT = 8080;
+const bodyParser = require('body-parser');
+require('dotenv').config();
+const PORT = process.env.PORT;
+
+
+
 
 app.use(express.json());
-app.use(router)
+app.use(router);
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}))
 
 
 app.get('/', (req, res)=>{
@@ -14,8 +23,8 @@ app.get('/', (req, res)=>{
 
 
 
-app.listen(PORT, (err)=>{
-    console.log(err)
+app.listen(PORT, ()=>{
+    console.log('Server listening Port', PORT)
 })
 
 
